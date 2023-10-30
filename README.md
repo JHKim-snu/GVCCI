@@ -28,6 +28,7 @@ If you use this code or data in your research, please consider citing:
 }
 ```
 
+<!--
 ## Table of Contents
 * [Setup and Dependencies](#Setup-and-Dependencies)
 * [Download Data](#Download-Data)
@@ -40,22 +41,24 @@ If you use this code or data in your research, please consider citing:
 * [Demo](#Demo)
 * [Acknowledgements](#Acknowledgements)
 * [License](#License)<br><br>
+-->
 
-
-Setup and Dependencies
+Environment Setup
 ----------------------
-This code is implemented using PyTorch v1.7.1+, and provides out of the box support with CUDA 11+ and CuDNN 7+. Anaconda/Miniconda is the recommended to set up this codebase: <br>
+Python 3.7+, PyTorch v1.9.1+, CUDA 11+ and CuDNN 7+, Anaconda/Miniconda (recommended) <br>
 
-1. Install Anaconda or Miniconda distribution based on Python3.8+ from their [downloads' site][7].
+1. Install Anaconda or Miniconda from [here][8].
 2. Clone this repository and create an environment:
 
 ```shell
-git clone https://www.github.com/gicheonkang/gst-visdial
-conda create -n gst python=3.8 -y
+git clone https://www.github.com/JHKim-snu/GVCCI
+conda create -n gvcci python=3.8
+conda activate gvcci
+```
 
-# activate the environment and install all dependencies
-conda activate gst
-pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+3. Install all dependencies:
+```shell
+pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements.txt
 ```
 
@@ -243,3 +246,4 @@ We use [VisDial-BERT][10] as reference code. Thanks!
 [5]: https://github.com/qpwodlsqp/
 [6]: https://bi.snu.ac.kr/~btzhang/
 [7]: https://github.com/suyeonshin/
+[8]: https://conda.io/docs/user-guide/install/download.html
