@@ -4,27 +4,27 @@
 </figure>
 <h1>GVCCI: Lifelong Learning of Visual Grounding <br> for Language-Guided Robotic Manipulation</h1>
   
-**[Junghyun Kim][4], &nbsp; [Gi-Cheon Kang][3]<sup>\*</sup>, &nbsp; [Jaein Kim][5]<sup>\*</sup>, &nbsp; Suyeon Shin, &nbsp; [Byoung-Tak Zhang][6]** <br>
+**[Junghyun Kim][4], &nbsp; [Gi-Cheon Kang][3]<sup>\*</sup>, &nbsp; [Jaein Kim][5]<sup>\*</sup>, &nbsp; [Suyeon Shin][7], &nbsp; [Byoung-Tak Zhang][6]** <br>
 
-**(\* Equal Contribution)** <br>
-
-**[IROS 2023][2] ([Paper][1])**
+**[The 2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2023)][2]**
 </div>
 
+<h3 align="center">
+<a href="https://arxiv.org/abs/2307.05963">arXiv</a> | <a href="https://mysnu-my.sharepoint.com/:b:/g/personal/justink7272_seoul_ac_kr/ESFwq_zFNX1Ml0F3xFGFGcwBWedNN_VQtzOhVREVrOTp4A?e=KZ1cgg">Poster</a> | <a href="https://mysnu-my.sharepoint.com/:v:/g/personal/justink7272_seoul_ac_kr/EX_8ZqI_nhRFtCkvZJpNFXwBztu19DwZlFgJkCZmdfmiIg?e=O23U2B">5min Video</a> | <a href="https://mysnu-my.sharepoint.com/:v:/g/personal/justink7272_seoul_ac_kr/ETzzTm8t-7JLvBu0NymEtYEBY-MQoAnzJkResamgYv6-kQ?e=wmFkhC">Demo Video</a>
+</h3>
 
 ## Overview
-<img src="gst_overview.gif" width="100%" align="middle"><br><br>
+<img src="GVCCI_demo_video.gif" width="100%" align="middle"><br><br>
 
 Citation
 -----------------------------
-If you use this code or preprocessed data in your research, please consider citing:
+If you use this code or data in your research, please consider citing:
 ```bibtex
-@inproceedings{kang2023dialog,
-  title={The Dialog Must Go On: Improving Visual Dialog via Generative Self-Training},
-  author={Kang, Gi-Cheon and Kim, Sungdong and Kim, Jin-Hwa and Kwak, Donghyun and Zhang, Byoung-Tak},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2023},
-  pages={6746-6756}
+@article{kim2023gvcci,
+  title={Gvcci: Lifelong learning of visual grounding for language-guided robotic manipulation},
+  author={Kim, Junghyun and Kang, Gi-Cheon and Kim, Jaein and Shin, Suyeon and Zhang, Byoung-Tak},
+  journal={arXiv preprint arXiv:2307.05963},
+  year={2023}
 }
 ```
 
@@ -234,10 +234,6 @@ Acknowledgements
 -----------------
 We use [VisDial-BERT][10] as reference code. Thanks!
 
-License
--------
-MIT License
-
 
 [1]: https://arxiv.org/abs/2307.05963
 [2]: https://ieee-iros.org/
@@ -245,3 +241,4 @@ MIT License
 [4]: https://github.com/JHKim-snu/
 [5]: https://github.com/qpwodlsqp/
 [6]: https://bi.snu.ac.kr/~btzhang/
+[7]: https://github.com/suyeonshin/
