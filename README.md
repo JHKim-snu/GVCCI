@@ -1,11 +1,14 @@
 <div align="center">
-<h1>:GVCCI: <br>Lifelong Learning of Visual Grounding for Language-Guided Robotic Manipulation</h1>
+<figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/1960s_Gucci_Logo.svg" width="100" height="70">
+</figure>
+<h1>GVCCI: Lifelong Learning of Visual Grounding <br> for Language-Guided Robotic Manipulation</h1>
   
-**[Gi-Cheon Kang][2], &nbsp; [Sungdong Kim][3]<sup>\*</sup>, &nbsp; [Jin-Hwa Kim][4]<sup>\*</sup>, &nbsp; [Donghyun Kwak][5]<sup>\*</sup>, &nbsp; [Byoung-Tak Zhang][6]** <br>
+**[Junghyun Kim][4], &nbsp; [Gi-Cheon Kang][3]<sup>\*</sup>, &nbsp; [Jaein Kim][5]<sup>\*</sup>, &nbsp; Suyeon Shin, &nbsp; [Byoung-Tak Zhang][6]** <br>
 
 **(\* Equal Contribution)** <br>
 
-**[CVPR 2023][16] ([Paper][1])**
+**[IROS 2023][2] ([Paper][1])**
 </div>
 
 
@@ -236,19 +239,9 @@ License
 MIT License
 
 
-[1]: https://arxiv.org/abs/2205.12502
-[2]: https://gicheonkang.com
-[3]: https://scholar.google.com/citations?user=xKrSnDoAAAAJ&hl=en
-[4]: http://wityworks.com
-[5]: https://scholar.google.com/citations?hl=en&user=MROzd8gAAAAJ
+[1]: https://arxiv.org/abs/2307.05963
+[2]: https://ieee-iros.org/
+[3]: https://gicheonkang.com
+[4]: https://github.com/JHKim-snu/
+[5]: https://github.com/qpwodlsqp/
 [6]: https://bi.snu.ac.kr/~btzhang/
-[7]: https://conda.io/docs/user-guide/install/download.html
-[8]: https://arxiv.org/pdf/1611.08669.pdf
-[9]: https://arxiv.org/abs/2102.08981
-[10]: https://github.com/vmurahari3/visdial-bert
-[11]: https://eval.ai/web/challenges/challenge-page/518/overview
-[12]: https://openaccess.thecvf.com/content_cvpr_2018/CameraReady/1163.pdf
-[13]: https://hub.docker.com/r/airsplay/bottom-up-attention
-[14]: https://drive.google.com/file/d/1bayGomljWb6HeYDMTDKXrh0HackKtSlx/view
-[15]: https://visualdialog.org/data
-[16]: https://cvpr2023.thecvf.com
