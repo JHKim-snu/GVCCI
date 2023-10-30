@@ -1,5 +1,5 @@
 <div align="center">
-GVCCI: <br>Lifelong Learning of Visual Grounding for Language-Guided Robotic Manipulation</h1>
+<h1>:GVCCI: <br>Lifelong Learning of Visual Grounding for Language-Guided Robotic Manipulation</h1>
   
 **[Gi-Cheon Kang][2], &nbsp; [Sungdong Kim][3]<sup>\*</sup>, &nbsp; [Jin-Hwa Kim][4]<sup>\*</sup>, &nbsp; [Donghyun Kwak][5]<sup>\*</sup>, &nbsp; [Byoung-Tak Zhang][6]** <br>
 
