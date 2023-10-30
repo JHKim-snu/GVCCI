@@ -234,6 +234,7 @@ Acknowledgements
 -----------------
 We use [VisDial-BERT][10] as reference code. Thanks!
 
+**Please leave a <font color='orange'>STAR ⭐</font> if you like this project!**
 
 [1]: https://arxiv.org/abs/2307.05963
 [2]: https://ieee-iros.org/
