@@ -136,6 +136,27 @@ python make_image_list.py
 OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=0,1,2,3 python extract.py --load_dir ./output_caffe152/ --image_dir ../data/train/ENV1_train/ --out_path ../instruction_generation/data/detection_results/ENV1/r152_attr_detection_results --image_list_file ./ENV1_train_train_imagelist_split0.txt --vg_dataset ENV1_train --cuda --split_ind 0
 ```
 
+The extracted visual feature should be saved as following:
+
+    ├── instruction_generation        
+    │   ├── data        
+    │   │   ├── detected_results
+    │   │   │   ├── ENV1_train / r101_object_detection_results      
+    │   │   │   │   ├── r101_object_detection_results
+    │   │   │   │   │   ├── ENV1_train_train_pseudo_split0_detection_results.pth
+    │   │   │   │   ├── r152_attr_detection_results      
+    │   │   │   │   │   ├── ENV1_train_train_pseudo_split0_attr_detection_results.pth
+
+Instruction Generation
+--------------------------------------
+
+
+
+Acknowledgements
+-----------------
+This repo is built on [Bottom-Up Attention](https://github.com/MILVLG/bottom-up-attention.pytorch), [Pseudo-Q](https://github.com/LeapLabTHU/Pseudo-Q), [OFA](https://github.com/OFA-Sys/OFA), and [MDETR](https://github.com/ashkamath/mdetr).
+
+
 <!--
 
 Pre-trained Checkpoints
@@ -294,9 +315,7 @@ python inference.py
 ```
 
 
-Acknowledgements
------------------
-We use [VisDial-BERT][10] as reference code. Thanks!
+
 
 **Please leave a <font color='orange'>STAR ⭐</font> if you like this project!**
 
