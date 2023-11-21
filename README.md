@@ -141,7 +141,7 @@ The extracted visual feature should be saved as following:
     ├── instruction_generation        
     │   ├── data        
     │   │   ├── detected_results
-    │   │   │   ├── ENV1_train / r101_object_detection_results      
+    │   │   │   ├── ENV1_train   
     │   │   │   │   ├── r101_object_detection_results
     │   │   │   │   │   ├── ENV1_train_train_pseudo_split0_detection_results.pth
     │   │   │   │   ├── r152_attr_detection_results      
