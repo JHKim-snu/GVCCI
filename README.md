@@ -126,8 +126,15 @@ Visual Feature Extraction
 Once you recieve images from whereever (robot, web, etc.), you first need to extract visual features of objects (category, attribute, location) in images to generate the instructions.
 For visual feature extraction, we leverage the pretrained classifiers and object detector from [Faster R-CNN](https://arxiv.org/abs/1506.01497) and [Bottom-Up Attention](https://arxiv.org/abs/1707.07998).
 The code is originated and modified from [this repository](https://github.com/MILVLG/bottom-up-attention.pytorch).
+We strongly recommend you to use a separate environment for the visual feature extraction.
+Please follow the Prerequisites [here](https://github.com/MILVLG/bottom-up-attention.pytorch).
 
-
+Extract the visual features with the following script:
+```shell
+cd visual_feature_extraction
+python make_image_list.py
+OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=0,1,2,3 python extract.py --load_dir ./output_caffe152/ --image_dir ../data/train/ENV1_train/ --out_path ../instruction_generation/data/detection_results/ENV1/r152_attr_detection_results --image_list_file ./ENV1_train_train_imagelist_split0.txt --vg_dataset ENV1_train --cuda --split_ind 0
+```
 
 <!--
 
