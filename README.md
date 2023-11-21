@@ -125,7 +125,10 @@ Visual Feature Extraction
 --------------------------------------
 Once you recieve images from whereever (robot, web, etc.), you first need to extract visual features of objects (category, attribute, location) in images to generate the instructions.
 For visual feature extraction, we leverage the pretrained classifiers and object detector from [Faster R-CNN](https://arxiv.org/abs/1506.01497) and [Bottom-Up Attention](https://arxiv.org/abs/1707.07998).
-The code is originated from [this repository](https://github.com/MILVLG/bottom-up-attention.pytorch).
+The code is originated and modified from [this repository](https://github.com/MILVLG/bottom-up-attention.pytorch).
+
+
+
 <!--
 
 Pre-trained Checkpoints
