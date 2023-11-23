@@ -147,9 +147,36 @@ The extracted visual feature should be saved as following:
     │   │   │   │   ├── r152_attr_detection_results      
     │   │   │   │   │   ├── ENV1_train_train_pseudo_split0_attr_detection_results.pth
 
+The results will be a dictionary of name of the image file for keys and list of each object's features for values.
+
+
 Instruction Generation
 --------------------------------------
 
+Now, you are ready to generate an instruction based on the extracted features.
+Generating instructions can be performed with the following script:
+
+```shell
+bash scripts/generate_pseudo_data.sh
+```
+
+Generated data will be saved in `.pth` format which is a list of sample instructions.
+Each sample instruction is a list that consists of 
+
+1. image file name
+2. object location
+3. instruction
+
+Visual Grounding
+--------------------------------------
+
+
+Language-Guided Robotic Manipulation
+--------------------------------------
+
+
+Experimental Results
+--------------------------------------
 
 
 Acknowledgements
