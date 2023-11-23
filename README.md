@@ -157,6 +157,7 @@ Now, you are ready to generate an instruction based on the extracted features.
 Generating instructions can be performed with the following script:
 
 ```shell
+cd ../instruction_generation
 bash scripts/generate_pseudo_data.sh
 ```
 
@@ -167,10 +168,12 @@ Each sample instruction is a list that consists of
 2. object location
 3. instruction
 
+You can visualize the generated samples through `visualize_samples.ipynb`
+
 
 Visual Grounding
 --------------------------------------
-Since you have a generated triplet of image, location, and instructions, you can train any visual grounidng model. 
+Since you have a generated triplet of image, location, and instructions, you can train any visual grounidng model you want. 
 Here, we provide a sample training and evaluation code of [OFA](http://arxiv.org/abs/2202.03052).
 
 
