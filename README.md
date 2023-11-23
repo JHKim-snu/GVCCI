@@ -167,8 +167,11 @@ Each sample instruction is a list that consists of
 2. object location
 3. instruction
 
+
 Visual Grounding
 --------------------------------------
+Since you have a generated triplet of image, location, and instructions, you can train any visual grounidng model. 
+Here, we provide a sample training and evaluation code of [OFA](http://arxiv.org/abs/2202.03052).
 
 
 Language-Guided Robotic Manipulation
@@ -177,6 +180,18 @@ Language-Guided Robotic Manipulation
 
 Experimental Results
 --------------------------------------
+
+
+
+
+Checkpoints of GVCCI can be found below.
+
+**GVCCI checkpoints**
+| ENV1(8)  | ENV1(33) | ENV1(135) | ENV1(540) | ENV2(8) | ENV2(33) | ENV2(135) |
+| --- | --- | --- | --- | --- | --- | --- |
+| [Download]()| [Download]() | [Download]() | [Download]() | [Download]() | [Download]() | [Download]() |
+
+
 
 
 Acknowledgements
