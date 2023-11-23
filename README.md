@@ -126,6 +126,7 @@ Visual Feature Extraction
 Once you recieve images from whereever (robot, web, etc.), you first need to extract visual features of objects (category, attribute, location) in images to generate the instructions.
 For visual feature extraction, we leverage the pretrained classifiers and object detector from [Faster R-CNN](https://arxiv.org/abs/1506.01497) and [Bottom-Up Attention](https://arxiv.org/abs/1707.07998).
 The code is originated and modified from [this repository](https://github.com/MILVLG/bottom-up-attention.pytorch).
+
 We strongly recommend you to use a separate environment for the visual feature extraction.
 Please follow the Prerequisites [here](https://github.com/MILVLG/bottom-up-attention.pytorch).
 
@@ -168,7 +169,11 @@ Each sample instruction is a list that consists of
 2. object location
 3. instruction
 
-You can visualize the generated samples through `visualize_samples.ipynb`
+You can visualize the generated samples through `visualize_samples.ipynb`. 
+Here is an example of the visualization.
+
+<img src="readme_figures/generated_sample.png" width="50%" align="middle"><br><br>
+
 
 
 Visual Grounding
@@ -184,6 +189,9 @@ Language-Guided Robotic Manipulation
 Experimental Results
 --------------------------------------
 
+<img src="readme_figures/offline_results.png" width="80%" align="middle"><br><br>
+
+<img src="readme_figures/online_results.png" width="40%" align="middle"><br><br>
 
 
 
