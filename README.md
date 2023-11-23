@@ -14,7 +14,7 @@
 </h3>
 
 ## Overview
-<img src="GVCCI_demo_video.gif" width="100%" align="middle"><br><br>
+<img src="readme_figures/GVCCI_demo_video.gif" width="100%" align="middle"><br><br>
 
 Citation
 -----------------------------
