@@ -169,7 +169,8 @@ Each sample instruction is a list that consists of
 2. object location
 3. instruction
 
-You can visualize the generated samples through `visualize_samples.ipynb`. 
+You can visualize the generated samples through `visualize_samples.ipynb`.
+
 Here is an example of the visualization.
 
 <img src="readme_figures/generated_sample.png" width="50%" align="middle"><br><br>
