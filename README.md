@@ -43,6 +43,8 @@ If you use this code or data in your research, please consider citing:
 * [License](#License)<br><br>
 -->
 
+<br>
+
 Environment Setup
 ----------------------
 Python 3.7+, PyTorch v1.9.1+, CUDA 11+ and CuDNN 7+, Anaconda/Miniconda (recommended) <br>
@@ -61,6 +63,9 @@ conda activate gvcci
 pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements.txt
 ```
+
+<br>
+
 
 VGPI Dataset
 ----------------------
@@ -121,6 +126,9 @@ We expect data to be uploaded to the following directory structure:
     │   │   │   └── ...      
     └── 
 
+<br>
+
+
 Visual Feature Extraction
 --------------------------------------
 Once you recieve images from whereever (robot, web, etc.), you first need to extract visual features of objects (category, attribute, location) in images to generate the instructions.
@@ -150,6 +158,8 @@ The extracted visual feature should be saved as following:
 
 The results will be a dictionary of name of the image file for keys and list of each object's features for values.
 
+<br>
+
 
 Instruction Generation
 --------------------------------------
@@ -169,21 +179,64 @@ Each sample instruction is a list that consists of
 2. object location
 3. instruction
 
-You can visualize the generated samples through `visualize_samples.ipynb`. 
+You can visualize the generated samples through `visualize_samples.ipynb`.
+
 Here is an example of the visualization.
 
 <img src="readme_figures/generated_sample.png" width="50%" align="middle"><br><br>
 
+
+<br>
 
 
 Visual Grounding
 --------------------------------------
 Since you have a generated triplet of image, location, and instructions, you can train any visual grounidng model you want. 
 Here, we provide a sample training and evaluation code of [OFA](http://arxiv.org/abs/2202.03052).
+The source code is from [OFA Github](https://github.com/OFA-Sys/OFA).
+
+To train the OFA model, you first need to change the `.pth` format into `.tsv` format:
+
+```shell
+cd ../visual_grounding/OFA
+python pth2tsv.py --pathfrom ../../instruction_generation/data/pseudo_samples/ENV1_train/ENV1_train.pth --pathto ../../data/train --name ENV1_train
+```
+From here, you can either follow the original OFA github repository or follow the instructions below.
+
+To train on the top of the pretrained OFA model, download the model checkpoint file provided [here](https://github.com/OFA-Sys/OFA/blob/main/checkpoints.md).
+Download the model checkpoint `Finetuned checkpoint for REFCOCO` file to `GVCCI/data/OFA_checkpoints/`.
+Then, the following script will train on the top of the pretrained OFA model.
+
+```shell
+cd run_scripts
+nohup sh train_refcoco.sh
+```
+
+Evaluate the trained model:
+
+```shell
+cd ..
+python evaluation.py --modelpath YOUR_MODEL_PATH_HERE
+```
+
+You can also visualize the model's output with `visualize.ipynb`.
+
+The pre-trained checkpoints of GVCCI can be found below.
+
+**GVCCI checkpoints**
+| ENV1(8)  | ENV1(33) | ENV1(135) | ENV1(540) | ENV2(8) | ENV2(33) | ENV2(135) |
+| --- | --- | --- | --- | --- | --- | --- |
+| [Download]()| [Download]() | [Download]() | [Download]() | [Download]() | [Download]() | [Download]() |
+
+
+
+<br>
 
 
 Language-Guided Robotic Manipulation
 --------------------------------------
+
+<br>
 
 
 Experimental Results
@@ -195,12 +248,7 @@ Experimental Results
 
 
 
-Checkpoints of GVCCI can be found below.
 
-**GVCCI checkpoints**
-| ENV1(8)  | ENV1(33) | ENV1(135) | ENV1(540) | ENV2(8) | ENV2(33) | ENV2(135) |
-| --- | --- | --- | --- | --- | --- | --- |
-| [Download]()| [Download]() | [Download]() | [Download]() | [Download]() | [Download]() | [Download]() |
 
 
 
@@ -210,169 +258,6 @@ Acknowledgements
 This repo is built on [Bottom-Up Attention](https://github.com/MILVLG/bottom-up-attention.pytorch), [Pseudo-Q](https://github.com/LeapLabTHU/Pseudo-Q), [OFA](https://github.com/OFA-Sys/OFA), and [MDETR](https://github.com/ashkamath/mdetr).
 
 
-<!--
-
-Pre-trained Checkpoints
---------------------------------------
-Please download the checkpoints to `checkpoints/` directory.
-
-| Model | Trained Data | Link |
-|:-------:|:---------:|:------:|
-|Questioner | VisDial v1.0 |[Download](https://www.dropbox.com/s/y3jdbfdaccholu3/questioner_v1.0.ckpt)|
-|Teacher | VisDial v1.0 | [Download](https://www.dropbox.com/s/5p4wyjb0hny691m/teacher_v1.0.ckpt)|
-|Student | VisDial v1.0 + CC12M with Synthetic Dialogs (iter3)| [Download](https://www.dropbox.com/s/ycgbn2mh0mtoktv/student_v1.0_iter3.ckpt)|
-|Student (Discriminative)| VisDial v1.0 + CC12M with Synthetic Dialogs (iter3)| [Download](https://www.dropbox.com/s/uxnlknhgzr8f8tq/student_v1.0_iter3_disc_dense.ckpt)
-|Base Model from [VisDial-BERT][10]| CC3M + VQA | [Download](https://www.dropbox.com/s/g38qemmqep1tt1a/basemodel)|
-
-
-Training
---------
-Teacher model and questioner model training. Nearly 54G gpu memory is required to train the model. The argument `-enc_dec_a` denotes an encoder-decoder model for answerer model, and `-enc_dec_q` is the encoder-decoder model for questioner model.  
-```shell
-# Teacher model training
-python train_gen.py \
-  -mode vd_train \
-  -start_path checkpoints/basemodel \
-  -model enc_dec_a \
-  -gpu_ids 0 1 2 3
-```
-```shell
-# Questioner model training
-python train_gen.py \
-  -mode vd_train \
-  -start_path checkpoints/basemodel \
-  -model enc_dec_q \
-  -gpu_ids 0 1 2 3
-```
-
-Student model training consists of two steps: (1) training on synthetically generated visual dialog dataset and (2) finetuning on original visual dialog dataset. The argument `-chunk` denotes the number of data chunk to use (default 30). `-select_data` is to use perplexity-based data selection method. After training on the synthetic dialog data, the student model is trained on the original visual dialog data. 
-```shell
-# training a synthetic visual dialog dataset
-python train_gen.py \
-  -mode cc12m_train \
-  -select_data \
-  -start_path checkpoints/basemodel \
-  -save_path checkpoints/iter1/ \
-  -chunk 30 \
-  -gpu_ids 0 1 2 3 \
-  -iter 1
-```
-```shell
-# finetuning on a original visual dialog dataset 
-python train_gen.py \
-  -mode vd_train \
-  -continue \
-  -start_path checkpoints/iter1/cc12m_train_30_3.ckpt \
-  -save_path checkpoints/iter1/ \
-  -chunk 30 \
-  -gpu_ids 0 1 2 3
-```
-
-Adaptation to Discriminative Visual Dialog
--------------------------------------------
-A ["discriminative" visual dialog model][8] requires answer candidates for each question, but our proposed approach only generates the ground-truth answer. Hence, we propose tricks to train the discriminative model. Based on the encoder-decoder model pre-trained on the synthetic dataset, we finetune the encoder model on the original visdial dataset. Please see our paper (Appendix B) for more details. 
-```shell
-python train_disc.py \
-  -mode vd_train \
-  -continue \
-  -model enc_only_a \
-  -batch_size 40 \
-  -train_dense \
-  -num_negative_samples 5 \
-  -start_path checkpoints/x30_start_iter3.ckpt \
-  -save_path checkpoints/disc \
-  -chunk 30 \
-  -gpu_ids 0 1 2 3
-```
-
-
-Visual Dialog Generation
-------------------------
-<img src="gst_vis.png" width="100%" align="middle"><br><br>
-Visual dialog generation given image features and captions. The questioner and the teacher alternately generates the visual question and corresponding answer, respectively. 
-
-You can generate **your own visual dialog dataset** just feeding [Bottom-up Attention Features][12] and the caption data. We extracted the image features using the [docker container][13].  
-```shell
-python generate.py \
-  -mode cc12m_gen \
-  -cc12m_image_feats data/cc12m/features/cc12m_img_feat_0.lmdb/ \
-  -cc12m_caption data/cc12m/captions/cc12m_filtered_0.json \
-  -start_path_q checkpoints/questioner_v1.0.ckpt \
-  -start_path_a checkpoints/teacher_v1.0.ckpt \
-  -save_name cc12m_dialogs_0.txt \
-  -save_path data/gen_dialog \
-  -gpu_ids 0 1
-```
-
-
-Evaluation
-----------
-Evaluation of the student model on VisDial v1.0 validation split. Validation scores can be checked in offline setting. But if you want to evaluate the model on the test dataset, you should change the mode to `vd_eval_test` and submit the text file to [EvalAI online evaluation server][11]. Also, evaluation for the VisDial v0.9 validation dataset is available. Please add `-vd_version 0.9`.
-```shell
-python evaluate_gen.py \
-  -mode vd_eval_val \
-  -start_path checkpoints/student_v1.0_iter3.ckpt \
-  -save_path results \
-  -save_name gen.txt \
-  -gpu_ids 0 1 2 3
-```
-Evaluation for the discriminative model is as follows.
-```shell
-python evaluate_disc.py \
-  -mode vd_eval_val \
-  -start_path checkpoints/student_v1.0_iter3_disc_dense.ckpt \
-  -save_path results \
-  -save_name disc.txt \
-  -gpu_ids 0 1 2 3
-```
-
-
-Adversarial Robustness Study
-----------------------------
-We propose three different adversarial attacks for VisDial: (1) the FGSM attack, (2) a coreference attack, and (3) a random token attack. The FGSM attack perturbs input visual features, and the others attack the dialog history (textual inputs).
-
-Simply run below for the FGSM attack
-```shell
-python evaluate_gen_attack.py \
-  -mode vd_eval_val \
-  -attack fgsm \
-  -start_path checkpoints/student_v1.0_iter3.ckpt \
-  -save_path results \
-  -save_name fgsm.txt \
-  -gpu_ids 0 1 2 3
-```
-
-For the textual attacks, preprocessing is required.
-Download the [counter-fitted word embeddings][14] and run the preprocessing code below.
-```shell
-python comp_cos_sim_mat.py counter-fitted-vectors.txt
-```
-Then, run the script
-```shell
-python evaluate_gen_attack.py \
-  -mode vd_eval_val \
-  -attack coreference \
-  -visdial_processed_val data/visdial/visdial_1.0_val_crowdsourced.json \
-  -visdial_processed_val_dense_annotations data/visdial/visdial_1.0_val_dense_annotations_processed_crowdsourced.json
-  -start_path checkpoints/student_v1.0_iter3.ckpt \
-  -save_path results \
-  -save_name coreference.txt \
-  -gpu_ids 0 1 2 3
-```
-
-Demo
-----
-We prepare interactive demo to show our model's generated answer easily. Simply run and enter the image id in [VisDial v1.0 validation images][15]. 
-```shell
-python inference.py
-```
-
-
-
-
-**Please leave a <font color='orange'>STAR ⭐</font> if you like this project!**
-
--->
 
 [1]: https://arxiv.org/abs/2307.05963
 [2]: https://ieee-iros.org/
