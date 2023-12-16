@@ -43,6 +43,8 @@ If you use this code or data in your research, please consider citing:
 * [License](#License)<br><br>
 -->
 
+<br>
+
 Environment Setup
 ----------------------
 Python 3.7+, PyTorch v1.9.1+, CUDA 11+ and CuDNN 7+, Anaconda/Miniconda (recommended) <br>
@@ -61,6 +63,9 @@ conda activate gvcci
 pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements.txt
 ```
+
+<br>
+
 
 VGPI Dataset
 ----------------------
@@ -121,6 +126,9 @@ We expect data to be uploaded to the following directory structure:
     │   │   │   └── ...      
     └── 
 
+<br>
+
+
 Visual Feature Extraction
 --------------------------------------
 Once you recieve images from whereever (robot, web, etc.), you first need to extract visual features of objects (category, attribute, location) in images to generate the instructions.
@@ -150,6 +158,8 @@ The extracted visual feature should be saved as following:
 
 The results will be a dictionary of name of the image file for keys and list of each object's features for values.
 
+<br>
+
 
 Instruction Generation
 --------------------------------------
@@ -176,15 +186,21 @@ Here is an example of the visualization.
 <img src="readme_figures/generated_sample.png" width="50%" align="middle"><br><br>
 
 
+<br>
+
 
 Visual Grounding
 --------------------------------------
 Since you have a generated triplet of image, location, and instructions, you can train any visual grounidng model you want. 
 Here, we provide a sample training and evaluation code of [OFA](http://arxiv.org/abs/2202.03052).
 
+<br>
+
 
 Language-Guided Robotic Manipulation
 --------------------------------------
+
+<br>
 
 
 Experimental Results
