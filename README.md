@@ -236,13 +236,27 @@ The pre-trained checkpoints of GVCCI can be found below.
 Language-Guided Robotic Manipulation
 --------------------------------------
 
+A robot arm is required for the Language-Guided Robotic Manipulation.
+The robot we used is [Kinova Gen3](https://www.kinovarobotics.com/product/gen3-robots). 
+Run the following code in your remote server:
+
+```shell
+python 
+```
+
+The code for robot will be provided soon.
+
 <br>
 
 
 Experimental Results
 --------------------------------------
 
+### Offline Experiments (Localization)
+
 <img src="readme_figures/offline_results.png" width="80%" align="middle"><br><br>
+
+### Online Experiments (LGRM)
 
 <img src="readme_figures/online_results.png" width="40%" align="middle"><br><br>
 
