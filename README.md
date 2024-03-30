@@ -241,7 +241,7 @@ The robot we used is [Kinova Gen3](https://www.kinovarobotics.com/product/gen3-r
 Run the following code in your remote server:
 
 ```shell
-python 
+python LGRM_server.py
 ```
 
 The code for robot will be provided soon.
